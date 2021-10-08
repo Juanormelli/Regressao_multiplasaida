@@ -37,9 +37,12 @@ inputs[:,3] = labelencoder_inputs.fit_transform(inputs[:,3])
 inputs[:,8] = labelencoder_inputs.fit_transform(inputs[:,8])
 
 
+
+
 onehotencoder = ColumnTransformer(transformers=[("OneHot", OneHotEncoder(), [0,2,3,8])],remainder='passthrough')
 
 inputs = onehotencoder.fit_transform(inputs).toarray()
+
 
 input_layer = Input(shape=(61,))
 
